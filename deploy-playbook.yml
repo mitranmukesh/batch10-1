@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: install docker
+    apt:
+      pkg: docker.io
+      state: present
+  - name: start docker
+    service:
+      name: docker
+      state: started
+      enabled: true
+  - name: pull image
+    command: sudo docker pull mitranmukesh/my-test-apps:1.6
+  - name: jar file deploy in node
+    command: sudo docker run -itd -p 8888:8888 mitranmukesh/my-test-apps:1.6
+  handlers:
+  - name: run update
+    apt:
+      update_cache: yes
+...
