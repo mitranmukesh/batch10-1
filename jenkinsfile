@@ -15,7 +15,7 @@ try{
         echo "scanning applications"
         tool name: 'maven', type: 'maven'
         //sh 'mvn sonar:sonar -Dsonar.projectKey=sonar -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.sources=/var/lib/jenkins/workspace/CI_CD-case-study -Dsonar.host.url=http://34.126.189.169:9000'
-        sh 'mvn sonar:sonar -Dsonar.projectKey=sonar -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.host.url=http://34.126.189.169:9000'
+        sh 'mvn sonar:sonar -Dsonar.projectKey=sonar -Dsonar.login=admin -Dsonar.password=admin123 -Dsonar.host.url=http://34.126.176.109:9000'
     }
     stage('HTML report'){
         echo "HTML report"
