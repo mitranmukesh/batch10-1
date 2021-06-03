@@ -31,6 +31,7 @@ try{
         def dockerCMD = "${docker}/bin/docker"
         sh "${dockerCMD} --version"
         sh "${dockerCMD} build -t mitranmukesh/my-test-apps:1.6 ."
+        echo "binding credentials to push image into docker hub"
         withCredentials([usernamePassword(credentialsId: 'docker cred', passwordVariable: 'userPass', usernameVariable: 'userName')]) {
                 sh "${dockerCMD} login -u ${userName} -p ${userPass}"
                 sh "${dockerCMD} push mitranmukesh/my-test-apps:1.6"
